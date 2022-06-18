@@ -1,34 +1,34 @@
+import { useEffect, useState } from 'react'
 import Card from '../components/Card'
 import styles from '../styles/Home.module.css'
 
-export async function getStaticProps() {
-  const pokeLimit = 151
-  const pokeApi = 'https://pokeapi.co/api/v2/pokemon'
+export default function HomePage() {
+  const [pokeList, setPokeList] = useState([])
 
-  const pokeRequest = await fetch(`${pokeApi}/?limit=${pokeLimit}`)
-  const pokeData = await pokeRequest.json()
+  useEffect(function () {
+    async function getPokemonList() {
+      const pokemonResponse = await fetch(
+        `https://pokeapi.co/api/v2/pokemon/?&limit=151`
+      )
+      const pokemonListData = await pokemonResponse.json()
 
-  pokeData.results.forEach((item, index) => {
-    item.id = index + 1
-  })
-
-  return {
-    props: {
-      pokeProps: pokeData.results
+      pokemonListData.results.forEach(function (item, index) {
+        item.id = index + 1
+      })
+      setPokeList(pokemonListData.results)
     }
-  }
-}
+    getPokemonList()
+  }, [])
 
-export default function Home({ pokeProps }) {
   return (
     <div className={styles.homeContainer}>
       <div>
-        <h1 className={styles.title}>Escolha seu Pokémon!</h1>
+        <h1 className={styles.title}>Choose your Pokémon!</h1>
       </div>
       <div className={styles.cardContainer}>
-        {pokeProps.map(pokemon => (
-          <Card key={pokemon.url} pokemon={pokemon} />
-        ))}
+        {pokeList.map(function (pokemon) {
+          return <Card key={pokemon.url} pokemon={pokemon} />
+        })}
       </div>
     </div>
   )
