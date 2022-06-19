@@ -8,12 +8,14 @@
 
 .title {
   display: flex;
+  color: white;
   justify-content: center;
   margin: 2rem;
 }
 
 .cardContainer {
   display: flex;
+  gap: 2rem;
   justify-content: center;
   max-width: 90%;
   flex-wrap: wrap;
