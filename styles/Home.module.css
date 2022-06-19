@@ -11,12 +11,13 @@
   color: white;
   justify-content: center;
   margin: 2rem;
+  font-size: clamp(16px, 2.5vw,32px);
 }
 
 .cardContainer {
   display: flex;
   gap: 2rem;
   justify-content: center;
-  max-width: 90%;
+  max-width: 90% ;
   flex-wrap: wrap;
 }
