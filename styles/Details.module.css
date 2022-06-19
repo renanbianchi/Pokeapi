@@ -19,15 +19,17 @@
   min-height: 100vh;
 }
 
+@media screen and (max-width: 690px) 
+  {.container {
+    flex-direction: column;
+  }}
+
 .data {
   text-align: center;
   font-size: 3rem;
   color: white;
 }
 
-.img {
-  position: absolute;
-}
 
 
 .container p {
