@@ -10,7 +10,7 @@ export default function Layout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
           rel="stylesheet"
         />
-        <title>Oi Jean, isso é o Next</title>
+        <title>Pokemon Api</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       {children}
