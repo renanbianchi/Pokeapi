@@ -16,11 +16,13 @@
   margin: 2rem;
   gap: 2rem;
   flex-wrap: wrap;
+  text-transform: uppercase;
 }
 
-.moves {
-  display: flex;
-  flex-direction: column;
+.ID {
+  text-align: center;
+  font-size: 3rem;
+  color: white;
 }
 
 .description {
@@ -32,9 +34,7 @@
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  min-height: 100vh;
+  margin-top: 2rem;
 }
 
 @media screen and (max-width: 690px) 

@@ -4,7 +4,7 @@ import styles from '../styles/Card.module.css'
 export default function Card({ pokemon }) {
   return (
     <>
-      <Link href={`/${pokemon.id}`}>
+      <Link href={`/pokemon/${pokemon.id}`}>
         <a className={styles.cardButton}>
           <img
             width={100}
