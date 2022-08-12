@@ -1,16 +1,66 @@
+.comments {
+  display: flex;
+  gap: 5rem;
+}
 .commentsContainer {
   display:flex;
+  gap: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-size: 1.5rem;
-  width: 50%;
-  height: auto;
   padding: 1rem;
   border: 2px solid #8DD5B0;
-  gap: 0.2rem;
   color: white;
   background-color: #339999;
-  margin: 2rem;
+  width: 40rem;
+  border-radius: 2rem;
+}
+
+.data{
+  display: flex;
+  gap: 1rem;
+
+}
+
+.commentbox{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.button {
+  font-size: 1.5rem;
+  padding: 1rem;
+  border: 2px solid #8DD5B0;
+  color: white;
+  background-color: #339999;
+  border-radius: 1rem;
+}
+
+.button:active {
+  font-size: 1.5rem;
+  padding: 0.9rem;
+  border: 2px solid #8DD5B0;
+  color: white;
+  background-color: #3badad;
+  border-radius: 1rem;
+}
+
+.currentComments {
+    display:flex;
+    gap: 1rem;
+    flex-direction: column;
+   
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: 2px solid #8DD5B0;
+    color: white;
+    background-color: #339999;
+    width: 40rem;
+    border-radius: 2rem;
 }

@@ -57,6 +57,8 @@ export default function Details({ pokemon }) {
               <Item label="Defense" value={pokemon.stats[2].base_stat} />
               <Item label="Speed" value={pokemon.stats[5].base_stat} />
               <Item label="Base Experience" value={pokemon.base_experience} />
+              {pokemon.game_indices.length === 0 ? null : <Item label="First Appearance" value={`pokemon ${pokemon.game_indices[0].version.name}`} />}
+            
             </div>
           </div>
         </div>
@@ -69,7 +71,9 @@ export default function Details({ pokemon }) {
           />
         </div>
       </div>
+      <div className={styles.commentPosition}>
           <Comments />
+      </div>
     </>
   )
 }

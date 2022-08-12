@@ -1,3 +1,29 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.data {
+  width: 60%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  color: white;
+}
+
+.description {
+  font-size: 1.5rem;
+  width: 70%;
+  text-align: center;
+}
+
+.commentPosition{
+  display: flex;
+  justify-content: center;
+}
+
 .dataContainer {
   text-align: center;
   font-size: 1.5rem;
@@ -13,6 +39,7 @@
 .specs {
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin: 2rem;
   gap: 2rem;
   flex-wrap: wrap;
@@ -25,31 +52,13 @@
   color: white;
 }
 
-.description {
-  font-size: 1.5rem;
-  width: 70%;
-  text-align: center;
-}
 
-.container {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
 
 @media screen and (max-width: 690px) 
   {.container {
     flex-direction: column;
   }}
 
-.data {
-  width: 60%;
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  font-size: 3rem;
-  color: white;
-}
 
 .container p {
   font-family: "Orbitron", sans-serif;
