@@ -1,15 +1,19 @@
 import Link from 'next/link'
 import styles from '../styles/Card.module.css'
+import Image from 'next/image'
 
 export default function Card({ pokemon }) {
   return (
     <>
       <Link href={`/pokemon/${pokemon.id}`}>
         <a className={styles.cardButton}>
-          <img
+       
+          <Image alt='pokemon image'
             width={100}
+            height={100}
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
           />
+          
           <p>{pokemon.name}</p>
         </a>
       </Link>

@@ -19,6 +19,22 @@
   text-align: center;
 }
 
+.detailsReturn a {
+  font-size: 1.5rem;
+  padding: 1rem;
+  border: 2px solid #8DD5B0;
+  color: white;
+  background-color: #339999;
+  border-radius: 1rem;
+  position: absolute;
+  text-decoration: none;
+  margin-left: 3rem;
+}
+
+.name {
+  text-transform: uppercase;
+}
+
 .commentPosition{
   display: flex;
   justify-content: center;
@@ -53,11 +69,40 @@
 }
 
 
-
 @media screen and (max-width: 690px) 
   {.container {
     flex-direction: column;
-  }}
+    align-items: center;
+  }
+  .specs {
+    justify-content: center;
+    align-items: center; 
+    margin: 0.5rem;
+    gap: 1rem;
+  }
+  .name {
+    font-size: 24px;
+  }
+  .description {
+    margin-top: 0.5rem;
+    font-size: 16px;
+    width: 100%;
+  }
+  .detailsReturn a {
+    position: relative;
+    margin: 0;
+  
+  }
+  .detailsReturn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dataContainer {
+    font-size: 16px;
+  }
+
+}
 
 
 .container p {

@@ -1,23 +1,35 @@
+import React from 'react'
 import Card from '../components/Card'
 import styles from '../styles/Home.module.css'
 
+
+let offset = 0
+/* async function handleNextPage({pokemonPaths}) {
+  offset = offset + 50
+  setpokemonPage(pokemonPaths.next)
+  
+} */
+
+//const [pokemonPage, setpokemonPage] = useState(`https://pokeapi.co/api/v2/pokemon/`)
+
 export async function getStaticProps() {
-  const pokemonResponse = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/?limit=151`
-    //link/pokemon?limit=20&offset=60
-  )
-  const pokemonList = await pokemonResponse.json()
+  const pokemonResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=151&offset=00`)
 
-  pokemonList.results.forEach(function (item, index) {
-    item.id = index +1
-  })
+  const pokemonLists = await pokemonResponse.json()
+    
+    pokemonLists.results.forEach(function (item, index) {
+      item.id = index + 1
+    })
+    
+    return {
+      props: {  
+        pokemonPaths: pokemonLists.next,
+        pokemonList: pokemonLists.results }
+      }
+    }
 
-  return {
-    props: { pokemonList: pokemonList.results }
-  }
-}
-
-export default function HomePage({ pokemonList, }) {
+    
+export default function HomePage({pokemonList}) {
   return (
     <div className={styles.homeContainer}>
       <div>
@@ -32,9 +44,11 @@ export default function HomePage({ pokemonList, }) {
           <a>Carregando</a>
         )}
       </div>
-      {/* <div>
-        <Link href={.flavor_text}><a>oi</a></Link>
-      </div> */}
+     {/*  <div>
+          
+          <button onClick={handleNextPage}>oi</button>
+          
+        </div> */}
 
     </div>
   )

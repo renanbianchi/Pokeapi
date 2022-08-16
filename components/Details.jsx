@@ -1,5 +1,7 @@
+import Link from 'next/dist/client/link'
 import styles from '../styles/Details.module.css'
 import Comments from './Comments'
+import Image from 'next/image'
 
 const Item = ({ label, value }) => (
   <div>
@@ -29,9 +31,14 @@ const MoveNames = ({ label, moves }) => (
 export default function Details({ pokemon }) {
   return (
     <>
+    <div className={styles.detailsReturn}>
+    <Link href="/" >Return</Link>
+    </div>
       <div className={styles.container}>
         <div className={styles.data}>
+          <div className={styles.name}>
           <Item value={pokemon.name} />
+          </div>
           <div className={styles.description}>
             <Item value={pokemon.flavor_text_entries.filter((description) => (description.language.name.includes('en')))[0].flavor_text}
             />
@@ -64,9 +71,10 @@ export default function Details({ pokemon }) {
         </div>
         <div className={styles.ID}>
           <Item label="Pokémon ID" value={`# ${pokemon.id}`} />
-          <img
+          <Image alt="pokemon image"
             className={styles.pokemonImg}
             width={400}
+            height={400}
             src={pokemon.sprites.other['official-artwork'].front_default}
           />
         </div>

@@ -2,11 +2,12 @@
   display: flex;
   gap: 5rem;
 }
+
+
 .commentsContainer {
   display:flex;
   gap: 1rem;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
   font-size: 1.5rem;
@@ -14,21 +15,34 @@
   border: 2px solid #8DD5B0;
   color: white;
   background-color: #339999;
-  width: 40rem;
+  width: 30rem;
+  height: 25rem;
   border-radius: 2rem;
 }
 
+
 .data{
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+}
 
+.dataName input, .dataEmail input {
+  width: 29em;
+  height: 2em;
 }
 
 .commentbox{
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-  gap: 1rem;
+  gap: 0.2rem;
+}
+
+.commentBox textarea {
+  
+  width: 24em;
+  height: 5em;
+  resize: none;
 }
 
 .button {
@@ -41,8 +55,8 @@
 }
 
 .button:active {
-  font-size: 1.5rem;
-  padding: 0.9rem;
+  font-size: 1.4rem;
+  padding: 1rem;
   border: 2px solid #8DD5B0;
   color: white;
   background-color: #3badad;
@@ -50,17 +64,52 @@
 }
 
 .currentComments {
-    display:flex;
-    gap: 1rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  border: 2px solid #8DD5B0;
+  color: white;
+  background-color: #339999;
+  width: 30rem;
+  height: 25rem;
+  border-radius: 2rem;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: auto;
+}
+
+.currentComments::-webkit-scrollbar {
+  display: none;
+}
+
+
+@media screen and (max-width: 690px) 
+  {
+    .comments {
     flex-direction: column;
-   
     align-items: center;
-    text-align: center;
-    font-size: 1.5rem;
-    padding: 1rem;
-    border: 2px solid #8DD5B0;
-    color: white;
-    background-color: #339999;
-    width: 40rem;
-    border-radius: 2rem;
+    width: 15rem;
+    gap: 2rem;
+  }
+
+  .commentsContainer {
+    width: 15rem;
+  }
+
+  .dataName input, .dataEmail input {
+    width: 15em;
+    height: 2em;
+  }
+
+  .commentBox textarea {
+    width: 12em;
+    height: 5em;
+    resize: none;
+  }
 }
