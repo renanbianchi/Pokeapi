@@ -1,6 +1,6 @@
-##PokeAPI
+## PokeAPI
 
-This is a project made with [Next.js](https://nextjs.org/), it has [Firebase] (https://firebase.google.com/) integration with a full comment system enabled per pokemon.
+This is a project made with [Next.js](https://nextjs.org/), it has [Firebase](https://firebase.google.com/), integration with a full comment system enabled per pokemon.
 
 This project is a work in progress and is being improved. More to come, so stick around!
 
