@@ -1,13 +1,13 @@
 import { getFirestore, collection, query, where, onCreate, getDocs, onSnapshot } from 'firebase/firestore'
 import { firebase } from '../firebase'
 import { useEffect, useState,} from 'react';
-import { async } from '@firebase/util';
+
 import { useRouter } from 'next/router';
 
 
 import styles from '../styles/CommentsList.module.css'
-import CommentCard from './commentCard';
-import { getSortedRoutes } from 'next/dist/shared/lib/router/utils';
+import CommentCard from './CommentCard';
+
 
 export default function CommentsList() {
   const [comments, setComments] = useState([])
