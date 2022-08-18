@@ -5,7 +5,7 @@ import Image from 'next/image'
 export default function Card({ pokemon }) {
   return (
     <>
-      <Link href={`/pokemon/${pokemon.id}`}>
+      <Link href={`/pokemon/${pokemon.id}`}> 
         <a className={styles.cardButton}>
        
           <Image alt='pokemon image'

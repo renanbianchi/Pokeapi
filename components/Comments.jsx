@@ -4,7 +4,6 @@ import { collection, addDoc, getFirestore, } from 'firebase/firestore'
 import { useRouter } from 'next/router'
 
 
-
 import styles from '../styles/Comments.module.css'
 import CommentsList from './CommentsList'
 
@@ -17,7 +16,7 @@ export default function Comments() {
   const db = getFirestore(firebase);
   const dbRef = collection(db, "comments");
   
-  function handleNewComment() {
+   function handleNewComment() {
     if(!Name || !Email || !Comment) {
       alert(`Please provide your Name, e-mail address and don't forget to write your commentary`)
       return null

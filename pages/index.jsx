@@ -1,54 +1,53 @@
+import Link from 'next/link'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 import React from 'react'
 import Card from '../components/Card'
 import styles from '../styles/Home.module.css'
+import id from './pokemon/[id]'
 
 
-let offset = 0
-/* async function handleNextPage({pokemonPaths}) {
-  offset = offset + 50
-  setpokemonPage(pokemonPaths.next)
-  
-} */
-
-//const [pokemonPage, setpokemonPage] = useState(`https://pokeapi.co/api/v2/pokemon/`)
-
-export async function getStaticProps() {
-  const pokemonResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=151&offset=00`)
-
+export async function getServerSideProps() {
+  const pokemonResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151`)
   const pokemonLists = await pokemonResponse.json()
-    
-    pokemonLists.results.forEach(function (item, index) {
-      item.id = index + 1
-    })
-    
-    return {
-      props: {  
-        pokemonPaths: pokemonLists.next,
-        pokemonList: pokemonLists.results }
-      }
-    }
 
+  pokemonLists.results.forEach(function (item, index) {
+    item.id = index +1
+  })
+  
+  return {
+    props: {  
+      pokemonList: pokemonLists
+    }}
+  }
+  
+  
+  export default function HomePage({pokemonList}) {
+   // const [search, setSearch] = useState('')
     
-export default function HomePage({pokemonList}) {
-  return (
-    <div className={styles.homeContainer}>
+    
+    return (
+      <div className={styles.homeContainer}>
       <div>
         <h1 className={styles.title}>Choose your Pokémon!</h1>
       </div>
+      {/* <div><label htmlFor="Search">Name:</label>
+    <input placeholder="Search for a pokemon" type="string" id="Search" onChange={setSearch} /></div> */}
       <div className={styles.cardContainer}>
         {pokemonList ? (
-          pokemonList.map(pokemon => {
+          pokemonList.results.map(pokemon => {
             return <Card key={pokemon.url} pokemon={pokemon} />
           })
-        ) : (
-          <a>Carregando</a>
-        )}
+          ) : (
+            <a>Loading</a>
+            )}
+           
       </div>
-     {/*  <div>
-          
-          <button onClick={handleNextPage}>oi</button>
-          
-        </div> */}
+      {/* <div>
+         <Link href={`/page`}>
+          <button onClick={null}>Next</button>
+        </Link> 
+      </div> */}
 
     </div>
   )
