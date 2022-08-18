@@ -7,7 +7,7 @@ import styles from '../styles/Home.module.css'
 import id from './pokemon/[id]'
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const pokemonResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151`)
   const pokemonLists = await pokemonResponse.json()
 
@@ -23,16 +23,11 @@ export async function getServerSideProps() {
   
   
   export default function HomePage({pokemonList}) {
-   // const [search, setSearch] = useState('')
-    
-    
     return (
       <div className={styles.homeContainer}>
       <div>
         <h1 className={styles.title}>Choose your Pokémon!</h1>
       </div>
-      {/* <div><label htmlFor="Search">Name:</label>
-    <input placeholder="Search for a pokemon" type="string" id="Search" onChange={setSearch} /></div> */}
       <div className={styles.cardContainer}>
         {pokemonList ? (
           pokemonList.results.map(pokemon => {
@@ -41,14 +36,7 @@ export async function getServerSideProps() {
           ) : (
             <a>Loading</a>
             )}
-           
       </div>
-      {/* <div>
-         <Link href={`/page`}>
-          <button onClick={null}>Next</button>
-        </Link> 
-      </div> */}
-
-    </div>
+     </div>
   )
 }

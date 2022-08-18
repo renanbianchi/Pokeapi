@@ -6,77 +6,83 @@
 
 .commentsContainer {
   display:flex;
-  gap: 1rem;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  font-size: 1.5rem;
-  padding: 1rem;
-  border: 2px solid #8DD5B0;
+
   color: white;
+  border: 2px solid #8DD5B0;
   background-color: #339999;
+
+  border-radius: 2rem;
+  padding: 1rem;
   width: 30rem;
   height: 25rem;
-  border-radius: 2rem;
+  gap: 1rem;
+
+  text-align: center;
+  font-size: 1.5rem;
 }
 
-
-.data{
+.data {
   display: flex;
   flex-direction: column;
 }
 
 .dataName input, .dataEmail input {
+  border-radius: 0.5rem;
+  padding: 0.2rem;
   width: 29em;
   height: 2em;
 }
 
-.commentbox{
+.commentBox {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+
   gap: 0.2rem;
 }
 
 .commentBox textarea {
-  
-  width: 24em;
-  height: 5em;
+  border-radius: 1rem;
+  width: 28em;
+  height: 7em;
+  padding: 0.5rem;
+
   resize: none;
 }
 
 .button {
-  font-size: 1.5rem;
-  padding: 1rem;
+  color: white; 
   border: 2px solid #8DD5B0;
-  color: white;
   background-color: #339999;
+
+  padding: 0.8rem;
   border-radius: 1rem;
+  font-size: 1.5rem;
 }
 
 .button:active {
-  font-size: 1.4rem;
-  padding: 1rem;
-  border: 2px solid #8DD5B0;
-  color: white;
   background-color: #3badad;
-  border-radius: 1rem;
+  font-size: 1.4rem;
 }
 
 .currentComments {
   display:flex;
   flex-direction: column;
  
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   align-items: center;
   text-align: center;
-  border: 2px solid #8DD5B0;
+
   color: white;
+  border: 2px solid #8DD5B0;
   background-color: #339999;
+
   width: 30rem;
   height: 25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   border-radius: 2rem;
+
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -88,11 +94,12 @@
 }
 
 
-@media screen and (max-width: 690px) 
+@media screen and (max-width: 1114px) 
   {
     .comments {
     flex-direction: column;
     align-items: center;
+    
     width: 15rem;
     gap: 2rem;
   }
@@ -109,6 +116,31 @@
   .commentBox textarea {
     width: 12em;
     height: 5em;
+
     resize: none;
   }
+  .currentComments {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    border: 2px solid #8DD5B0;
+    background-color: #339999;
+    color: white;
+
+    width: 15em;
+    height: 25em;
+
+    margin-bottom: 1rem;
+    border-radius: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: auto;
+  }
+
 }

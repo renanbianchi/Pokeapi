@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { firebase } from '../firebase'
-import { collection, addDoc, getFirestore, } from 'firebase/firestore'
+import { collection, addDoc, getFirestore, serverTimestamp } from 'firebase/firestore'
 import { useRouter } from 'next/router'
 
 
@@ -23,12 +23,13 @@ export default function Comments() {
     }
     
     router.query
+
     const commentData = { 
       name: `${Name.target.value}`,
       email: `${Email.target.value}`,
       comment: `${Comment.target.value}`,
       pokemon: `${router.query.id}`,
-      created_at: new Date()
+      created_at: new Date(),
     };
     
     addDoc(dbRef, commentData)
@@ -38,32 +39,30 @@ export default function Comments() {
       console.log(error);
       return alert('erro');
     })
-        //addDoc(collection(getFirestore(firebase), 'comments')), commentData
   }
   return (
     <div className={styles.comments}>
-    <div className={styles.commentsContainer}>
-    <p>Leave a comment!</p>
-    <div className={styles.data}>
-    
-    <div className={styles.dataName}>
-    <label htmlFor="Name">Name:</label>
-    <input placeholder="Insert your name" type="string" id="Name" onChange={setName} />
+      <div className={styles.commentsContainer}>
+        <p>Leave a comment!</p>
+          <div className={styles.data}>
+            <div className={styles.dataName}>
+              <label htmlFor="Name">Name:</label>
+              <input placeholder="Insert your name" type="string" id="Name" onChange={setName} />
+            </div>
+            <div className={styles.dataEmail}>
+              <label htmlFor="Email">E-Mail: </label>
+              <input placeholder="Insert your e-mail" type="email" id="email" onChange={setEmail} />
+            </div>
+          </div>
+          <div className={styles.commentBox}>
+            <label htmlFor="comment">Comment:</label>
+            <textarea type="textarea" onChange={setComment} />
+          </div>
+      <button className={styles.button} type='submit' onClick={handleNewComment}>SEND</button>
     </div>
-    <div className={styles.dataEmail}>
-    <label htmlFor="Email">E-Mail: </label>
-    <input placeholder="Insert your e-mail" type="email" id="email" onChange={setEmail} />
-    </div>
-    </div>
-    <div className={styles.commentBox}>
-    <label htmlFor="comment">Comment:</label>
-    <textarea type="textarea" onChange={setComment} />
-    </div>
-    <button className={styles.button} type='submit' onClick={handleNewComment}>SEND</button>
-    </div>
-    <div className={styles.currentComments}>
-      <CommentsList />
-    </div>
+      <div className={styles.currentComments}>
+        <CommentsList />
+      </div>
     </div>
   )
 } 
