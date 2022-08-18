@@ -25,10 +25,10 @@ export default function CommentsList() {
               key: doc.id,
             })
             ))
-          })
-        }
+          });
+        };
       fetchdata()
-    }, [router.query.id])
+    }, [router.query.id]);
   return(
     (comments.length == 0 ? <div className={styles.noComment}><a>No Comment here Yet! Be the first to leave one!</a></div> : comments.map(comment => {return <CommentCard key={comment.key} comment={comment}/>})
     ))}
