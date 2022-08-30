@@ -18,7 +18,7 @@ const MoveNames = ({ label, moves }) => (
       <b>{label}</b>
     </p>
     {moves.map((move, index) => {
-      if (index < 2)
+      if (index < 10)
         return (
           <p className={styles.moves} key={move}>
             {move}
@@ -53,12 +53,14 @@ export default function Details({ pokemon }) {
                   label="Weight"
                   value={`${(pokemon.weight / 2.2046).toFixed(2)} Kg`}
                 />
-                <MoveNames
-                  label="Moves"
-                  moves={pokemon.moves.map(element => {
-                    return element.move.name
-                  })}
-                />
+                <div className={styles.movesContainer}>
+                  <MoveNames
+                    label="Moves"
+                    moves={pokemon.moves.map(element => {
+                      return element.move.name
+                    })}
+                  />
+                </div>
                 <Item label="Type" value={pokemon.types[0].type.name} />
                 <Item label="Attack" value={pokemon.stats[1].base_stat} />
                 <Item label="Defense" value={pokemon.stats[2].base_stat} />
@@ -80,7 +82,7 @@ export default function Details({ pokemon }) {
           </div>
       </div>
       <div className={styles.commentPosition}>
-        <Comments />
+        <Comments pokemon={pokemon} />
       </div>
     </>
   )

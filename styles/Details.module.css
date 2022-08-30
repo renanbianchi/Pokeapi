@@ -41,6 +41,13 @@
   background-color: #2b8383;
 }
 
+.movesContainer {
+  display: flex;
+  flex-direction: column;
+  overflow:auto;
+  height: 4rem;
+  scroll-behavior: smooth;
+}
 
 .name {
   text-transform: uppercase;

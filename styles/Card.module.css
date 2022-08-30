@@ -11,6 +11,7 @@
   border-radius: 2rem;
   padding: 0.5rem;
   width: 10rem;
+  height: 8rem;
 
   text-decoration: none;
   text-transform: uppercase;
@@ -18,4 +19,8 @@
 
 .cardButton:active {
   background-color: #2b8383;
+}
+
+.image {
+  filter: drop-shadow(0.5px 0.5px 0.5px #222);
 }

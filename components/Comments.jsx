@@ -1,45 +1,58 @@
 import { useState } from 'react'
 import { firebase } from '../firebase'
-import { collection, addDoc, getFirestore, serverTimestamp } from 'firebase/firestore'
-import { useRouter } from 'next/router'
+import { collection, addDoc, getFirestore } from 'firebase/firestore'
+
 
 
 import styles from '../styles/Comments.module.css'
 import CommentsList from './CommentsList'
 
 
-export default function Comments() {
+
+export default function Comments( {pokemon} ) {
   const [Name, setName] = useState('');
   const [Email, setEmail] = useState('');
   const [Comment, setComment] = useState('');
-  const router = useRouter();
   const db = getFirestore(firebase);
   const dbRef = collection(db, "comments");
   
-   function handleNewComment() {
+    const handleComment = (e) => {
+    setComment(e.target.value)
+  }
+  
+  const handleName = (e) => {
+    setName(e.target.value)
+  }
+  
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
+  } 
+  
+  function handleNewComment() {
     if(!Name || !Email || !Comment) {
       alert(`Please provide your Name, e-mail address and don't forget to write your commentary`)
       return null
     }
-    
-    router.query
 
     const commentData = { 
-      name: `${Name.target.value}`,
-      email: `${Email.target.value}`,
-      comment: `${Comment.target.value}`,
-      pokemon: `${router.query.id}`,
+      name: `${Name}`,
+      email: `${Email}`,
+      comment: `${Comment}`,
+      pokemon: `${pokemon.id}`,
       created_at: new Date(),
+      timestamp: new Date().toLocaleString()
     };
     
     addDoc(dbRef, commentData)
+    .then(setComment(''), setEmail(''), setName(''))
     .then(alert("Comment sent sucessfully"))
-
+    
     .catch((error) => {
       console.log(error);
       return alert('erro');
     })
   }
+
   return (
     <div className={styles.comments}>
       <div className={styles.commentsContainer}>
@@ -47,21 +60,21 @@ export default function Comments() {
           <div className={styles.data}>
             <div className={styles.dataName}>
               <label htmlFor="Name">Name:</label>
-              <input placeholder="Insert your name" type="string" id="Name" onChange={setName} />
+              <input value={Name} placeholder="Insert your name" type="string" id="Name" onChange={handleName} />
             </div>
             <div className={styles.dataEmail}>
               <label htmlFor="Email">E-Mail: </label>
-              <input placeholder="Insert your e-mail" type="email" id="email" onChange={setEmail} />
+              <input value={Email} placeholder="Insert your e-mail" type="email" id="Email" onChange={handleEmail} />
             </div>
           </div>
           <div className={styles.commentBox}>
             <label htmlFor="comment">Comment:</label>
-            <textarea type="textarea" onChange={setComment} />
+            <textarea value={Comment} type="textarea" id="Comment" onChange={handleComment} />
           </div>
-      <button className={styles.button} type='submit' onClick={handleNewComment}>SEND</button>
-    </div>
+        <button className={styles.button} type='submit' onClick={handleNewComment}>SEND</button>
+      </div>
       <div className={styles.currentComments}>
-        <CommentsList />
+        <CommentsList pokemon={pokemon} />
       </div>
     </div>
   )

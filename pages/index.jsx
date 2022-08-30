@@ -1,27 +1,22 @@
-import Link from 'next/link'
-import { useState } from 'react'
-import { useRouter } from 'next/router'
 import React from 'react'
 import Card from '../components/Card'
 import styles from '../styles/Home.module.css'
-import id from './pokemon/[id]'
 
 
 export async function getStaticProps() {
   const pokemonResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151`)
   const pokemonLists = await pokemonResponse.json()
 
-  pokemonLists.results.forEach(function (item, index) {
+  pokemonLists.results.map((item, index) => {
     item.id = index +1
   })
   
   return {
     props: {  
-      pokemonList: pokemonLists
+      pokemonList: pokemonLists.results
     }}
   }
-  
-  
+
   export default function HomePage({pokemonList}) {
     return (
       <div className={styles.homeContainer}>
@@ -30,7 +25,7 @@ export async function getStaticProps() {
       </div>
       <div className={styles.cardContainer}>
         {pokemonList ? (
-          pokemonList.results.map(pokemon => {
+          pokemonList.map(pokemon => {
             return <Card key={pokemon.url} pokemon={pokemon} />
           })
           ) : (

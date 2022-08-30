@@ -3,7 +3,10 @@ const nextConfig = {
   pageExtensions: ['jsx'],
   reactStrictMode: true,
   images: {
-      domains: ['raw.githubusercontent.com'],
+      domains: [
+        'raw.githubusercontent.com', 
+        'play.pokemonshowdown.com'
+      ],
   }
 }
 
