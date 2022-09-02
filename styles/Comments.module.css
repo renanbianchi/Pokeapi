@@ -3,14 +3,13 @@
   gap: 5rem;
 }
 
-
 .commentsContainer {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
 
   color: white;
-  border: 2px solid #8DD5B0;
+  border: 2px solid #8dd5b0;
   background-color: #339999;
 
   border-radius: 2rem;
@@ -28,7 +27,8 @@
   flex-direction: column;
 }
 
-.dataName input, .dataEmail input {
+.dataName input,
+.dataEmail input {
   border-radius: 0.5rem;
   padding: 0.2rem;
   width: 29em;
@@ -52,8 +52,8 @@
 }
 
 .button {
-  color: white; 
-  border: 2px solid #8DD5B0;
+  color: white;
+  border: 2px solid #8dd5b0;
   background-color: #339999;
 
   padding: 0.8rem;
@@ -67,14 +67,14 @@
 }
 
 .currentComments {
-  display:flex;
+  display: flex;
   flex-direction: column;
- 
+
   align-items: center;
   text-align: center;
 
   color: white;
-  border: 2px solid #8DD5B0;
+  border: 2px solid #8dd5b0;
   background-color: #339999;
 
   width: 30rem;
@@ -93,10 +93,8 @@
   display: none;
 }
 
-
-@media screen and (max-width: 1114px) 
-  {
-    .comments {
+@media screen and (max-width: 1114px) {
+  .comments {
     flex-direction: column;
     align-items: center;
 
@@ -108,7 +106,8 @@
     width: 15rem;
   }
 
-  .dataName input, .dataEmail input {
+  .dataName input,
+  .dataEmail input {
     width: 15em;
     height: 2em;
   }
@@ -120,12 +119,12 @@
     resize: none;
   }
   .currentComments {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 
-    border: 2px solid #8DD5B0;
+    border: 2px solid #8dd5b0;
     background-color: #339999;
     color: white;
 
@@ -142,5 +141,4 @@
     scrollbar-width: none;
     scroll-behavior: auto;
   }
-
 }

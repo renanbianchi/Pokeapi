@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   color: white;
 
   width: 60%;
@@ -25,7 +25,7 @@
 
 .detailsReturn a {
   color: white;
-  border: 2px solid #8DD5B0;
+  border: 2px solid #8dd5b0;
   background-color: #339999;
 
   margin-left: 3rem;
@@ -44,23 +44,44 @@
 .movesContainer {
   display: flex;
   flex-direction: column;
-  overflow:auto;
-  height: 4rem;
-  scroll-behavior: smooth;
+  overflow: hidden;
+  height: 3.4rem;
+  width: 20rem;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: auto;
+}
+
+.moves {
+  animation: scrollmoves 9s alternate infinite ease-in-out;
+}
+
+.movesContainer :hover .moves {
+  animation-play-state: paused;
+}
+
+@keyframes scrollmoves {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-790%);
+  }
 }
 
 .name {
   text-transform: uppercase;
 }
 
-.commentPosition{
+.commentPosition {
   display: flex;
   justify-content: center;
 }
 
 .dataContainer {
   color: white;
-  border: 2px solid #8DD5B0;
+  border: 2px solid #8dd5b0;
   background-color: #339999;
 
   padding: 1rem;
@@ -69,6 +90,13 @@
   margin: 2rem;
   text-align: center;
   font-size: 1.5rem;
+}
+
+.labelmoves {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .specs {
@@ -90,15 +118,27 @@
   font-size: 3rem;
 }
 
+.container p {
+  font-family: 'Pokemon GB', sans-serif;
+  /* font-family: 'Orbitron', sans-serif; */
+}
 
-@media screen and (max-width: 1114px) 
-  {.container {
+.label {
+  stroke: black;
+}
+
+.pokemonImg {
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+@media screen and (max-width: 1114px) {
+  .container {
     align-items: center;
     flex-direction: column;
   }
   .specs {
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 
     margin: 0.5rem;
     gap: 1rem;
@@ -114,7 +154,6 @@
   .detailsReturn a {
     position: relative;
     margin: 0;
-  
   }
   .detailsReturn {
     display: flex;
@@ -124,17 +163,4 @@
   .dataContainer {
     font-size: 16px;
   }
-
-}
-
-.container p {
-  font-family: "Orbitron", sans-serif;
-}
-
-.label {
-  stroke: black;
-}
-
-.pokemonImg {
-  filter: drop-shadow(5px 5px 5px #222);
 }

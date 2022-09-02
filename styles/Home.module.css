@@ -7,21 +7,25 @@
   min-height: 70vh;
 }
 
+.homeContainer h1 {
+  font-family: 'Pokemon GB', sans-serif;
+}
+
 .title {
   display: flex;
   justify-content: center;
-  
+
   color: white;
-  
+
   margin: 2rem;
-  font-size: clamp(16px, 2.5vw,32px);
+  font-size: clamp(16px, 2.5vw, 32px);
 }
 
 .cardContainer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  
+
   gap: 2rem;
   max-width: 90%;
 }
