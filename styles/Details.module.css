@@ -76,7 +76,8 @@
 
 .commentPosition {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  
 }
 
 .dataContainer {
@@ -131,6 +132,16 @@
   filter: drop-shadow(5px 5px 5px #222);
 }
 
+@media screen and (max-width: 1790px) {
+  .specs {
+    justify-content: center;
+    align-items: center;
+
+    margin: 0.5rem;
+    gap: 1rem;
+  }
+}
+
 @media screen and (max-width: 1114px) {
   .container {
     align-items: center;
@@ -140,8 +151,7 @@
     justify-content: center;
     align-items: center;
 
-    margin: 0.5rem;
-    gap: 1rem;
+ 
   }
   .name {
     font-size: 24px;

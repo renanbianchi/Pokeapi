@@ -1,4 +1,4 @@
-import styles from '../styles/CommentsList.module.css'
+import styles from '../styles/CommentCard.module.css'
 
 export default function CommentCard({ comment }) {
   return (
