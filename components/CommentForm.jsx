@@ -4,7 +4,6 @@ import { collection, addDoc, getFirestore } from 'firebase/firestore'
 
 import styles from '../styles/Comments.module.css'
 
-
 export default function CommentForm({ pokemon }) {
   const [Name, setName] = useState('')
   const [Email, setEmail] = useState('')

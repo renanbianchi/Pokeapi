@@ -97,6 +97,11 @@ export default function Details({ pokemon }) {
       <div className={styles.commentPosition}>
         <Comments pokemon={pokemon} />
       </div>
+      <div className={styles.credits}>
+        Font made from
+        <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>is licensed
+        by CC BY 3.0
+      </div>
     </>
   )
 }
