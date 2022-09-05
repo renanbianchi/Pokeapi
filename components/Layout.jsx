@@ -12,11 +12,6 @@ export default function Layout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
           rel="stylesheet"
         />
-        <link
-          href="https://db.onlinewebfonts.com/c/831e1f4da157d96bc996f8c9f5f1e578?family=Pokemon+GB"
-          rel="stylesheet"
-          type="text/css"
-        />
         <title>Pokemon Api</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
