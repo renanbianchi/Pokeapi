@@ -3,7 +3,7 @@ import Details from '../../components/Details'
 
 export async function getStaticPaths() {
   const res = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=800`
+    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151`
   )
   const pokemonList = await res.json()
 
