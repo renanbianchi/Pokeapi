@@ -13,7 +13,7 @@ export default function Layout({ children }) {
           rel="stylesheet"
         />
         <link
-          href="//db.onlinewebfonts.com/c/831e1f4da157d96bc996f8c9f5f1e578?family=Pokemon+GB"
+          href="https//db.onlinewebfonts.com/c/831e1f4da157d96bc996f8c9f5f1e578?family=Pokemon+GB"
           rel="stylesheet"
           type="text/css"
         />
