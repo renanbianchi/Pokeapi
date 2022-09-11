@@ -1,7 +1,7 @@
 import NotFound from '../404'
 import Details from '../../components/Details'
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ pokemon }) {
   const res = await fetch(
     `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151`
   )

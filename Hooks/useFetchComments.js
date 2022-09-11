@@ -12,16 +12,17 @@ import { useEffect, useState } from 'react'
 
 const useFetchComments = ({ pokemon }) => {
   const [results, setResults] = useState([])
+  const db = getFirestore(firebase)
+  const dbref = collection(db, `comments`)
 
   useEffect(() => {
-    const db = getFirestore(firebase)
-    const dbref = collection(db, 'comments')
     const fetchdata = async () => {
       const q = query(
         dbref,
         where('pokemon', '==', `${pokemon.id}`),
-        orderBy('timestamp')
+        orderBy('timestamp', 'desc')
       )
+
       onSnapshot(q, snapshot => {
         setResults(
           snapshot.docs.map(doc => ({
@@ -36,7 +37,7 @@ const useFetchComments = ({ pokemon }) => {
       })
     }
     fetchdata()
-  }, [pokemon.id])
+  }, [pokemon.id, dbref])
   return {
     results
   }

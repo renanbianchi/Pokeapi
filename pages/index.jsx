@@ -28,7 +28,7 @@ export default function HomePage({ pokemonList }) {
       <div className={styles.cardContainer}>
         {pokemonList ? (
           pokemonList.map(pokemon => {
-            return <Card key={pokemon.url} pokemon={pokemon} />
+            return <Card key={pokemon.id} pokemon={pokemon} />
           })
         ) : (
           <a>Loading</a>

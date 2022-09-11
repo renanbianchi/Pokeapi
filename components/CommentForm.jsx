@@ -9,7 +9,16 @@ export default function CommentForm({ pokemon }) {
   const [Email, setEmail] = useState('')
   const [Comment, setComment] = useState('')
   const db = getFirestore(firebase)
-  const dbRef = collection(db, 'comments')
+  const dbRef = collection(db, 'commentsTests')
+
+  const commentData = {
+    name: `${Name}`,
+    email: `${Email}`,
+    comment: `${Comment}`,
+    pokemon: `${pokemon.id}`,
+    created_at: new Date(),
+    timestamp: new Date().toLocaleString()
+  }
 
   const handleName = N => {
     setName(N.target.value)
@@ -29,15 +38,6 @@ export default function CommentForm({ pokemon }) {
         `Please provide your Name, e-mail address and don't forget to write your commentary`
       )
       return null
-    }
-
-    const commentData = {
-      name: `${Name}`,
-      email: `${Email}`,
-      comment: `${Comment}`,
-      pokemon: `${pokemon.id}`,
-      created_at: new Date(),
-      timestamp: new Date().toLocaleString()
     }
 
     addDoc(dbRef, commentData)
@@ -60,6 +60,7 @@ export default function CommentForm({ pokemon }) {
             placeholder="Insert your name"
             type="string"
             id="Name"
+            required
             onChange={handleName}
           />
         </div>
@@ -70,6 +71,7 @@ export default function CommentForm({ pokemon }) {
             placeholder="Insert your e-mail"
             type="email"
             id="Email"
+            required
             onChange={handleEmail}
           />
         </div>
@@ -80,13 +82,16 @@ export default function CommentForm({ pokemon }) {
           value={Comment}
           type="textarea"
           id="Comment"
+          required
           onChange={handleComment}
         />
       </div>
       <button
         className={styles.button}
         type="submit"
-        onClick={handleNewComment}
+        onClick={
+          handleNewComment /* useSendComments({ pokemon }, Name, Email, Comment) */
+        }
       >
         SEND
       </button>

@@ -5,10 +5,16 @@ import Image from 'next/image'
 export default function Card({ pokemon }) {
   return (
     <>
-      <Link pokemon={pokemon} href={`/pokemon/${pokemon.name}`}>
+      <Link
+        prefetch={false}
+        pokemon={pokemon}
+        href={`/pokemon/${pokemon.name}`}
+      >
         <a className={styles.cardButton}>
           <div className={styles.image}>
             <Image
+              priority={true}
+              placeholder="color"
               alt="pokemon image"
               width={100}
               height={100}
