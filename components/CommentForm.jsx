@@ -9,7 +9,7 @@ export default function CommentForm({ pokemon }) {
   const [Email, setEmail] = useState('')
   const [Comment, setComment] = useState('')
   const db = getFirestore(firebase)
-  const dbRef = collection(db, 'commentsTests')
+  const dbRef = collection(db, 'comments')
 
   const commentData = {
     name: `${Name}`,
@@ -33,9 +33,9 @@ export default function CommentForm({ pokemon }) {
   }
 
   function handleNewComment() {
-    if (!Name || !Email || !Comment) {
+    if (!Name || !Comment) {
       alert(
-        `Please provide your Name, e-mail address and don't forget to write your commentary`
+        `Please provide your Name and don't forget to write your commentary`
       )
       return null
     }
@@ -54,13 +54,13 @@ export default function CommentForm({ pokemon }) {
       <p>Leave a comment!</p>
       <div className={styles.data}>
         <div className={styles.dataName}>
-          <label htmlFor="Name">Name:</label>
+          <label htmlFor="Name">Name*: </label>
           <input
             value={Name}
             placeholder="Insert your name"
             type="string"
             id="Name"
-            required
+            required={true}
             onChange={handleName}
           />
         </div>
@@ -68,21 +68,20 @@ export default function CommentForm({ pokemon }) {
           <label htmlFor="Email">E-Mail: </label>
           <input
             value={Email}
-            placeholder="Insert your e-mail"
+            placeholder="Insert your e-mail (optional)"
             type="email"
             id="Email"
-            required
             onChange={handleEmail}
           />
         </div>
       </div>
       <div className={styles.commentBox}>
-        <label htmlFor="comment">Comment:</label>
+        <label htmlFor="comment">Comment*:</label>
         <textarea
           value={Comment}
           type="textarea"
           id="Comment"
-          required
+          required="required"
           onChange={handleComment}
         />
       </div>

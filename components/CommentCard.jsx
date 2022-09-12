@@ -8,7 +8,7 @@ export default function CommentCard({ comment }) {
         <p>
           <b>{comment.name} said:</b> {comment.comment}
         </p>
-        <p>Contact Info: {comment.email}</p>
+        {comment.email ? <p>Contact Info: {comment.email}</p> : null}
       </div>
     </>
   )
